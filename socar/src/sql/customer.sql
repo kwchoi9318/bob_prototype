@@ -1,14 +1,16 @@
+select * from customer;
+
+create sequence cust_seq start with 1000 increment by 1 cycle;
+
 create table customer(
-search varchar2(),
-input_date varchar2(),
-title varchar2(),
-content varchar2(),
-file varchar2(),
-t
+	cust_seq int primary key,
+	title varchar2(50),
+	content varchar2(200),
+	file varchar2(255),
+	reg_date varchar2(10),
+	id varchar2(20),
+	constraint customer_member_fk foreign key (id)
+	references member(id) on delete cascade
 );
-String search : 검색 키워드
-String date : 작성일
-String title : 게시물의 제목
-String content : 고객센터 글의 내용 .고객센터 게시물의 내용
-String file : 첨부한 파일 이름
-Int titleNum : 게시물 번호
+	
+	
