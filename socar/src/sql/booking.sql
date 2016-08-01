@@ -7,6 +7,6 @@ travel varchar2(2),
 socar_zone varchar2(20),
 print_pay_km int,
 print_pay_rent int
-);
+);--
 
 select * from booking;
