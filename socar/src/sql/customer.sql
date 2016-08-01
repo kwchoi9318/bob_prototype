@@ -1,6 +1,10 @@
 create table customer(
 search varchar2(),
-date varchar2(),
+input_date varchar2(),
+title varchar2(),
+content varchar2(),
+file varchar2(),
+t
 );
 String search : 검색 키워드
 String date : 작성일
