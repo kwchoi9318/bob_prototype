@@ -1,4 +1,4 @@
-select * from customer;
+select * from customer;--
 
 create sequence cust_seq start with 1000 increment by 1 cycle;
 
