@@ -5,7 +5,6 @@ create table history(
 	rent_zone varchar2(10),
 	car_model varchar2(10),
 	pay_km int,
-	pay_rent int,
 	id varchar2(20),
 	constraint history_member_fk foreign key (id)
 	references member(id) on delete cascade
