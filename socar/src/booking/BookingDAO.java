@@ -51,7 +51,7 @@ public class BookingDAO {
 	public int insertHistory(CarBean car) {
 		int result = 0;
 		String sql = "insert into history (hist_seq, rent_date, rent_zone, car_model, pay_km) "
-				+ "values (hist_seq.nextval, ?, ?, ?, ?)"; 	//id 후에 추가
+				+ "values (hist_seq.nextval, ?, ?, ?, ?)"; 	//id 후에 추가...
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, car.getRentTime());
