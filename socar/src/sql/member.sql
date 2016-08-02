@@ -12,12 +12,8 @@ license_val varchar2(5),
 license_local varchar2(3),
 license_num varchar2(20),
 license_end varchar2(11),
-license_start varchar2(11),
-rent_date varchar2(24),
-rent_zone varchar2(10),
-car_model varchar2(10),
-pay_km int,
-pay_rent int
+license_start varchar2(11)
+
 );
 
-select * from socar_member;
+select * from member;
