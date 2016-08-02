@@ -1,5 +1,6 @@
 create sequence book_seq start with 1000 increment by 1 cycle;
 create table booking(
+
 	book_seq int primary key,
 	car_model varchar2(10) ,
 	rent_date varchar2(40),
@@ -11,5 +12,6 @@ create table booking(
 	constraint booking_member_fk foreign key (id)
 	references member(id) on delete cascade
 );
+
 
 select * from booking;
