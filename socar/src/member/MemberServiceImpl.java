@@ -64,14 +64,14 @@ public class MemberServiceImpl implements MemberService{
 			result = session.getName();
 			System.out.println("서비스에서 이름 디버깅 :"+result);
 		}else{
-			result = "";
+			result = "로그인 실패";
 		}
 		return result;
 	}
 
 	@Override
 	public void logout() {
-		
+		System.out.println("삭제");
 			session = null;
 		
 		
@@ -79,7 +79,9 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public void leave(MemberBean member) {
+
 		if (dao.leave(member)==1) {
+			System.out.println("Delete success from DAO");
 			session = null;
 		}
 	}
@@ -90,6 +92,7 @@ public class MemberServiceImpl implements MemberService{
 		return dao.list();
 	}
 	public MemberBean getSession() {
+		System.out.println("세션확인");
 		return session;
 	}
 

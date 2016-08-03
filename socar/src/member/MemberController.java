@@ -40,13 +40,23 @@ public class MemberController {
 				break;
 			case "3":
 				MemberBean mem2 = new MemberBean();
-				service.findById(JOptionPane.showInputDialog("ID 입력"));
+				JOptionPane.showMessageDialog(null,service.findById(JOptionPane.showInputDialog("ID 입력")) );
 				break;
 			case "4":
-				MemberBean temp = null;
-				temp = service.findById(service.getSession().getId());
-				temp.setPw(JOptionPane.showInputDialog("pw"));
-				temp.setPhone(JOptionPane.showInputDialog("phone"));
+				MemberBean temp = new MemberBean();
+				String input2 = JOptionPane.showInputDialog("PW,PHONE,job,licenceVal,licenceLocal,licenceNum,licenceEnd,licenceStart,address,region,id");
+				String[] inputArr = input2.split(",");
+				temp.setPw(inputArr[0]);
+				temp.setPhone(inputArr[1]);
+				temp.setJob(inputArr[2]);
+				temp.setLicenceVal(inputArr[3]);
+				temp.setLicenceLocal(inputArr[4]);
+				temp.setLicenceNum(inputArr[5]);
+				temp.setLicenceEnd(inputArr[6]);
+				temp.setLicenceStart(inputArr[7]);
+				temp.setAddress(inputArr[8]);
+				temp.setRegion(inputArr[9]);
+				temp.setId(inputArr[10]);
 				service.updateInfo(temp);
 				break;
 			case "5":
@@ -55,6 +65,10 @@ public class MemberController {
 				break;
 			case "6":
 				MemberBean temp3 = new MemberBean();
+				String input3 = JOptionPane.showInputDialog("ID,PW");
+				String[] arr3 = input3.split(",");
+				temp3.setId(arr3[0]);
+				temp3.setPw(arr3[1]);
 				service.leave(temp3);
 				break;
 				

@@ -63,8 +63,8 @@ public class MemberDAO {
 
 	public int update(MemberBean member) {
 		int result = 0;
-		String sql = "update member"
-				+ "set pw = ?,phone = ?,address=?,region = ?,job = ?"
+		String sql = "update member "
+				+ "set pw = ?,phone = ?,address=?,region = ?,job = ?,licence_val=?,licence_num=?,licence_local=?,licence_start=?,licence_end=? "
 				+ "where id = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -73,17 +73,18 @@ public class MemberDAO {
 			pstmt.setString(3, member.getAddress());
 			pstmt.setString(4, member.getRegion());
 			pstmt.setString(5, member.getJob());
-			pstmt.setString(6, member.getId());
+			pstmt.setString(6, member.getLicenceVal());
+			pstmt.setString(7, member.getLicenceNum());
+			pstmt.setString(8, member.getLicenceLocal());
+			pstmt.setString(9, member.getLicenceStart());
+			pstmt.setString(10, member.getLicenceEnd());
+			pstmt.setString(11, member.getId());
 			result = pstmt.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (result == 1) {
-			System.out.println("DAO에서 수정 성공");
-		}else{
-			System.out.println("DAO에서 수정 실패");
-		}
+		
 		return result;
 	}
 
@@ -121,7 +122,7 @@ public class MemberDAO {
 	}
 
 	public MemberBean findById(String findID) {
-		String sql = "select * from member where id = ?";
+		String sql = "select * from member where id = ?";//read
 		MemberBean temp = null;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -150,6 +151,8 @@ public class MemberDAO {
 
 	public int leave(MemberBean member) {
 		int result = 0;
+		System.out.println(member.getId());
+		System.out.println(member.getPw());
 		String sql = "delete from member where id = ? and pw = ?";
 		try {
 			pstmt = con.prepareStatement(sql);
